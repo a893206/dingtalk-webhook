@@ -1,0 +1,4 @@
+APScheduler==3.9.1
+chinese_calendar==1.7.1
+chinesecalendar==1.7.1
+requests==2.25.1

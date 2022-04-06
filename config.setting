@@ -1,0 +1,5 @@
+[scheduler]
+crontab=30 7-21/2 * * *
+[drink_water]
+webhook=https://oapi.dingtalk.com/robot/send?access_token=XXXXXX
+secret=XXX
