@@ -34,7 +34,7 @@ def drink_water():
                 "msgtype": "markdown",
                 "markdown": {
                     "title": "喝水时间到！",
-                    "text": "![笑对万事](https://raw.githubusercontent.com/a893206/dingtalk-webhook/main/img/love&peace.jpg)"
+                    "text": "#### 喝水时间到！\n > ![笑对万事](https://raw.githubusercontent.com/a893206/dingtalk-webhook/main/img/love&peace.jpg)"
                 },
             })
 
