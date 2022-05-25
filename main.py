@@ -26,15 +26,18 @@ def get_timestamp_and_sign(section: str):
 
 
 def drink_water():
-    if is_workday(datetime.date.today()):
+    now = datetime.datetime.now()
+    if is_workday(now):
         section = drink_water.__name__
         timestamp, sign = get_timestamp_and_sign(section)
+        filename = '{}:{}.{}'.format(now.hour, now.minute, img_suffix)
+        img_url = 'https://raw.githubusercontent.com/a893206/dingtalk-webhook/main/img/{}/{}'.format(version, filename)
         requests.post(
             cp.get(section, 'webhook') + '&timestamp={}&sign={}'.format(timestamp, sign), json={
                 "msgtype": "markdown",
                 "markdown": {
                     "title": "喝水时间到！",
-                    "text": "#### 喝水时间到！\n > ![笑对万事](https://raw.githubusercontent.com/a893206/dingtalk-webhook/main/img/love&peace.jpg)"
+                    "text": "#### 喝水时间到！\n > ![先喝水，再开会！]({})".format(img_url)
                 },
             })
 
@@ -42,6 +45,9 @@ def drink_water():
 if __name__ == '__main__':
     cp = ConfigParser()
     cp.read('config.setting')
+
+    version = cp.get('DEFAULT', 'version')
+    img_suffix = cp.get('img', 'suffix')
 
     logging.basicConfig()
     logging.getLogger('apscheduler').setLevel(logging.DEBUG)

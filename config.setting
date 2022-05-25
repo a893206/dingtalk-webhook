@@ -1,3 +1,7 @@
+[DEFAULT]
+version=v1.0.1
+[img]
+suffix=png
 [scheduler]
 crontab=30 7-21/2 * * *
 [drink_water]
